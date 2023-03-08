@@ -1,0 +1,23 @@
+<ng-template a15ngrxstoreAlertPlaceholder></ng-template>
+<mat-grid-list cols="2">
+  <mat-grid-tile colspan="2" class="mat-elevation-z4">
+    <div class="col col-md-6 offset-md-3">
+      <form name="authForm" novalidate #authForm="ngForm" (ngSubmit)="$event.preventDefault();onSubmit()" *ngIf="!isLoading else LoadingTmpl">
+        <mat-form-field>
+          <input matInput placeholder="Email" type="email" name="email" ngModel required email />
+        </mat-form-field>
+
+        <mat-form-field>
+          <input matInput placeholder="Password" type="password" name="password" ngModel required minlength="6" />
+        </mat-form-field>
+
+        <button mat-raised-button color="primary" (click)="onSubmit()">Submit</button>
+      </form>
+      <ng-template #LoadingTmpl>
+        <div>
+          Loading...
+        </div>
+      </ng-template>
+    </div>
+  </mat-grid-tile>
+</mat-grid-list>
