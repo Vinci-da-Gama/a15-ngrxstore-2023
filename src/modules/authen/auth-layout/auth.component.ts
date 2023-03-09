@@ -1,5 +1,3 @@
-import { ClearError } from './../../../store/authStore/auth.actions';
-import { AuthRespInterface } from './../../../contracts/interfaces/auth-resp-interface';
 import {
   Component,
   ComponentFactoryResolver,
@@ -11,11 +9,16 @@ import { NgForm } from '@angular/forms';
 import { Store } from '@ngrx/store';
 import { Observable, Subscription } from 'rxjs';
 
-import { AppStoreStateInterface } from './../../../contracts/interfaces/app-store-state-interface';
+import { AppStoreStateInterface } from '../../../contracts/interfaces/app-store-state-interface';
 import { AlertPlaceholderDirective } from 'src/directive/alert-placeholder/alert-placeholder.directive';
-import { AlertModalComponent } from './../../share/shareComponents/alert-modal/alert-modal.component';
-import { AuthStateInterface } from './../../../contracts/interfaces/auth-state-interface';
-import { LoginStart, SignupStart } from 'src/store/authStore/auth.actions';
+import { AlertModalComponent } from '../../share/shareComponents/alert-modal/alert-modal.component';
+import { AuthStateInterface } from '../../../contracts/interfaces/auth-state-interface';
+import {
+  ClearError,
+  LoginStart,
+  SignupStart,
+} from '../../../store/authStore/auth.actions';
+import { AuthRespInterface } from '../../../contracts/interfaces/auth-resp-interface';
 
 @Component({
   selector: 'a15ngrxstore-auth',

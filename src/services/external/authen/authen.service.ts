@@ -1,10 +1,10 @@
-import { Logout } from './../../../store/authStore/auth.actions';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 
 import { AppStoreStateInterface } from '../../../contracts/interfaces/app-store-state-interface';
+import { Logout } from '../../../store/authStore/auth.actions';
 
 @Injectable({
   providedIn: 'root',
