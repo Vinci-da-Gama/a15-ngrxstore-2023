@@ -43,5 +43,6 @@ Thumbs.db
 
 **/*.txt
 .vscode
-/src/store/authStore
+src/store/authStore
 src/constants/api-related.ts
+src/environments/*.*
