@@ -1,7 +1,11 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { EffectsModule } from '@ngrx/effects';
 
 import { environment } from '../environments/environment'; // Angular CLI environment
 import { AppRoutingModule } from './app-routing.module';
@@ -10,22 +14,19 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from '../modules/share/shareComponents/header/header.component';
 import { NoFoundComponent } from '../modules/share/shareComponents/no-found/no-found.component';
 import { appReducers } from './../store/app-store.reducer';
-import { routerReducer, StoreRouterConnectingModule } from '@ngrx/router-store';
-import { EffectsModule } from '@ngrx/effects';
-import { StoreDevtoolsModule } from '@ngrx/store-devtools';
-import { AuthEffects } from 'src/store/authStore/auth.effects';
+import { AuthEffects } from '../store/authStore/auth.effects';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, NoFoundComponent],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ShareModule,
     StoreModule.forRoot({
       ...appReducers,
-      router: routerReducer,
-    } as any),
+    }),
     EffectsModule.forRoot([AuthEffects]),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({

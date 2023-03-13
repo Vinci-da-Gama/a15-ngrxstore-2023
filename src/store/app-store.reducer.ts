@@ -1,7 +1,9 @@
 import { ActionReducerMap } from '@ngrx/store';
+import { routerReducer } from '@ngrx/router-store';
 
-import { AppStoreStateInterface } from 'src/contracts/interfaces/app-store-state-interface';
+import { AppStoreStateInterface } from '../contracts/interfaces/app-store-state-interface';
 import AuthReducer from './authStore/auth.reducer';
+import { recipeReducer } from './recipeStore/recipe.reducer';
 
 /**
  * if use old way to do action, need to do this;
@@ -9,10 +11,10 @@ import AuthReducer from './authStore/auth.reducer';
  * no need to export action types.
  */
 // type StoreActionsType = SlActions.SlActionType;
-
-export const appReducers: ActionReducerMap<any> =
-  // StoreActionsType
-  {
-    // shoppingListReducer,
-    AuthReducer,
-  };
+// StoreActionsType
+export const appReducers: ActionReducerMap<any> = {
+  // shoppingListReducer,
+  AuthReducer,
+  recipeReducer,
+  router: routerReducer,
+};

@@ -22,9 +22,13 @@ export const LOGOUT = '[companyName]/authentication-LOGOUT';
 export const AUTO_LOGOUT = '[companyName]/authentication-AUTO_LOGOUT';
 
 // recipes
-export const SET_RECIPES = '[companyName]/recipes-SET_RECIPES';
-export const FETCH_RECIPES = '[companyName]/recipes-FETCH_RECIPES';
-export const STORE_RECIPES = '[companyName]/recipes-STORE_RECIPES';
-export const ADD_RECIPE = '[companyName]/recipes-ADD_RECIPE';
-export const UPDATE_RECIPE = '[companyName]/recipes-UPDATE_RECIPE';
-export const DELETE_RECIPE = '[companyName]/recipes-DELETE_RECIPE';
+export enum RecipeActionTypes {
+  SET_RECIPES = '[companyName]/recipes-SET_RECIPES',
+  FETCH_RECIPES = '[companyName]/recipes-FETCH_RECIPES',
+  STORE_RECIPES = '[companyName]/recipes-STORE_RECIPES',
+  STORE_RECIPES_SUCCESS = '[companyName]/recipes-STORE_RECIPES_SUCCESS',
+  STORE_RECIPES_FAILURE = '[companyName]/recipes-STORE_RECIPES_FAILURE',
+  ADD_RECIPE = '[companyName]/recipes-ADD_RECIPE',
+  UPDATE_RECIPE = '[companyName]/recipes-UPDATE_RECIPE',
+  DELETE_RECIPE = '[companyName]/recipes-DELETE_RECIPE',
+}
