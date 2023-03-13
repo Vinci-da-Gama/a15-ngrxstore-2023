@@ -15,18 +15,21 @@ import { HeaderComponent } from '../modules/share/shareComponents/header/header.
 import { NoFoundComponent } from '../modules/share/shareComponents/no-found/no-found.component';
 import { appReducers } from './../store/app-store.reducer';
 import { AuthEffects } from '../store/authStore/auth.effects';
+import { CoreModule } from './../modules/core/core.module';
+import { SlModule } from './../modules/shoppingList/sl-module/sl.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, NoFoundComponent],
   imports: [
     BrowserModule,
     HttpClientModule,
+    CoreModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     ShareModule,
     StoreModule.forRoot({
       ...appReducers,
-    }),
+    } as any),
     EffectsModule.forRoot([AuthEffects]),
     // Instrumentation must be imported after importing StoreModule (config is optional)
     StoreDevtoolsModule.instrument({
@@ -40,6 +43,7 @@ import { AuthEffects } from '../store/authStore/auth.effects';
       },
     }),
     StoreRouterConnectingModule.forRoot(),
+    SlModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

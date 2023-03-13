@@ -10,6 +10,13 @@ const appRoutes: Routes = [
     loadChildren: () =>
       import('../modules/authen/authen.module').then((m) => m.AuthenModule),
   },
+  {
+    path: 'shopping-list',
+    loadChildren: () =>
+      import('../modules/shoppingList/sl-module/sl.module').then(
+        (m) => m.SlModule
+      ),
+  },
   { path: '**', redirectTo: '/no-found' },
   {
     path: 'no-found',
