@@ -10,7 +10,7 @@ import { Logout } from '../../../store/authStore/auth.actions';
   providedIn: 'root',
 })
 export class AuthenService {
-  private tokenExpirationTimer: number = 0;
+  private tokenExpirationTimer = 0;
 
   constructor(
     private httpCli: HttpClient,
