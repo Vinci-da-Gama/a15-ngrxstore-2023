@@ -16,7 +16,6 @@ import { NoFoundComponent } from '../modules/share/shareComponents/no-found/no-f
 import { appReducers } from './../store/app-store.reducer';
 import { AuthEffects } from '../store/authStore/auth.effects';
 import { CoreModule } from './../modules/core/core.module';
-import { SlModule } from './../modules/shoppingList/sl-module/sl.module';
 
 @NgModule({
   declarations: [AppComponent, HeaderComponent, NoFoundComponent],
@@ -43,7 +42,6 @@ import { SlModule } from './../modules/shoppingList/sl-module/sl.module';
       },
     }),
     StoreRouterConnectingModule.forRoot(),
-    SlModule,
   ],
   providers: [],
   bootstrap: [AppComponent],

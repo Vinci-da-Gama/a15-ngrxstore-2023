@@ -17,6 +17,13 @@ const appRoutes: Routes = [
         (m) => m.SlModule
       ),
   },
+  {
+    path: 'recipes',
+    loadChildren: () =>
+      import('../modules/receipes/recipe-module/recipe.module').then(
+        (m) => m.RecipeModule
+      ),
+  },
   { path: '**', redirectTo: '/no-found' },
   {
     path: 'no-found',
