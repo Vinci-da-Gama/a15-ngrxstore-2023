@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
+import { MatFormFieldModule } from '@angular/material/form-field';
 
 import { ShareModule } from '../../share/share.module';
 import { RecipeRoutingModule } from './recipe-routing.module';
@@ -19,6 +20,11 @@ import { ItemComponent } from '../receipe-compos/item/item.component';
     StartComponent,
     ItemComponent,
   ],
-  imports: [ShareModule, MatGridListModule, RecipeRoutingModule],
+  imports: [
+    ShareModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    RecipeRoutingModule,
+  ],
 })
 export class RecipeModule {}

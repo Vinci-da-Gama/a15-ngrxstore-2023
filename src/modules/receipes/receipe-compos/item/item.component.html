@@ -1,1 +1,9 @@
-<p>item works!</p>
+<a [ngStyle]="{cursor: 'pointer'}" [routerLink]="[index]" routerLinkActive="active">
+  <div>
+    <h4>{{ recipe.name }}</h4>
+    <p>{{ recipe.description }}</p>
+  </div>
+  <span>
+    <img [src]="recipe.imagePath" alt="{{recipe.name}}" [ngStyle]="{ maxHeight: '50px' }">
+  </span>
+</a>

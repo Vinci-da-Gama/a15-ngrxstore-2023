@@ -1,1 +1,30 @@
-<p>edit works!</p>
+<mat-grid-list cols="1" [gutterSize]="'1px'">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <form (ngSubmit)="onSubmit()" [formGroup]="recipeForm" novalidate>
+        <mat-grid-list cols="1" [gutterSize]="'1px'">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-button color="danger" type="submit" [disabled]="!recipeForm.valid">
+                Save
+              </button>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <button mat-button (click)="onCancel()">Cancel</button>
+            </mat-grid-tile>
+        </mat-grid-list>
+        <mat-grid-list cols="1"[gutterSize]="'1px'">
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field>
+                <mat-label>Name</mat-label>
+                <input matInput formControlName="name" id="name" type="text" />
+              </mat-form-field>
+            </mat-grid-tile>
+            <mat-grid-tile [colspan]="1" [rowspan]="1">
+              <mat-form-field>
+                <mat-label>Image URL</mat-label>
+                <input matInput formControlName="imagePath" id="imagePath" type="text" />
+              </mat-form-field>
+            </mat-grid-tile>
+        </mat-grid-list>
+      </form>
+    </mat-grid-tile>
+</mat-grid-list>

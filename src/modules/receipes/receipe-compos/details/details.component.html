@@ -1,1 +1,29 @@
-<p>details works!</p>
+<mat-grid-list cols="1"[gutterSize]="'1px'">
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <img [src]="recipe.imagePath" alt="{{recipe.name}}" [ngStyle]="{maxHeight: '300px'}" />
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      {{recipe.name}}
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <button mat-button type="button" (click)="onAddToShoppingList()">
+        To Shopping List
+      </button>
+      <button mat-button type="button" color="primary" (click)="onEditRecipe()">
+        Edit Recipe
+      </button>
+      <button mat-button type="button" (click)="onDeleteRecipe()">
+        Delete Recipe
+      </button>
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      {{recipe.description}}
+    </mat-grid-tile>
+    <mat-grid-tile [colspan]="1" [rowspan]="1">
+      <ul>
+        <li *ngFor="let ingredient of recipe.ingredients; trackBy: getIngredientTrackBy; let i = index;">
+          {{ ingredient.name }} - {{ ingredient.amount }} -- index: {{i}}
+        </li>
+      </ul>
+    </mat-grid-tile>
+</mat-grid-list>
