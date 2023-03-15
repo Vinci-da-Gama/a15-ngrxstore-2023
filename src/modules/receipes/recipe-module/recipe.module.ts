@@ -1,6 +1,8 @@
+import { MatDividerModule } from '@angular/material/divider';
 import { NgModule } from '@angular/core';
 import { MatGridListModule } from '@angular/material/grid-list';
 import { MatFormFieldModule } from '@angular/material/form-field';
+// import { MatInputModule } from '@angular/material/input';
 
 import { ShareModule } from '../../share/share.module';
 import { RecipeRoutingModule } from './recipe-routing.module';
@@ -24,6 +26,8 @@ import { ItemComponent } from '../receipe-compos/item/item.component';
     ShareModule,
     MatGridListModule,
     MatFormFieldModule,
+    /* MatInputModule, */
+    MatDividerModule,
     RecipeRoutingModule,
   ],
 })
