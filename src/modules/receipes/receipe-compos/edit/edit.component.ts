@@ -4,6 +4,10 @@ import { ActivatedRoute, Params, Router } from '@angular/router';
 import { Store } from '@ngrx/store';
 import { map, Subscription } from 'rxjs';
 
+import {
+  updateRecipe,
+  addRecipe,
+} from './../../../../store/recipeStore/recipe.actions';
 import { RecipeModel } from '../../../../contracts/models/recipe-model';
 import { AppStoreStateInterface } from '../../../../contracts/interfaces/app-store-state-interface';
 
@@ -84,10 +88,41 @@ export class EditComponent implements OnInit, OnDestroy {
     return (<FormArray>this.recipeForm.get('ingredients')).controls;
   }
 
+  onSubmit() {
+    if (this.editMode) {
+      this.store.dispatch(
+        updateRecipe({
+          idx: this.id,
+          newRecipe: this.recipeForm.value,
+        })
+      );
+    } else {
+      this.store.dispatch(addRecipe(this.recipeForm.value));
+    }
+    this.onCancel();
+  }
+
+  onAddIngredient() {
+    (<FormArray>this.recipeForm.get('ingredients')).push(
+      new FormGroup({
+        name: new FormControl(null, Validators.required),
+        amount: new FormControl(null, [
+          Validators.required,
+          Validators.pattern(/^[1-9]+[0-9]*$/),
+        ]),
+      })
+    );
+  }
+
+  onDeleteIngredient(index: number) {
+    (<FormArray>this.recipeForm.get('ingredients')).removeAt(index);
+  }
+
+  onCancel = () => {
+    this.router.navigate(['../'], { relativeTo: this.route });
+  };
+
   ngOnDestroy(): void {
     this.editReciSub && this.editReciSub.unsubscribe();
   }
-}
-function controls() {
-  throw new Error('Function not implemented.');
 }
